@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  jenkins:
+    build: .
+    privileged: true
+    user: root
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    volumes:
+      - ~/Documents/Courses/FS/jenkins/apps:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    container_name: sysprojectdegree-jenkins
